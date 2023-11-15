@@ -3,6 +3,7 @@ Allow the user to add tasks to a to-do list.
 Allow the user to view their current to-do list.
 Allow the user to mark tasks as completed and remove them from the list.
 """
+
 task = []
 
 
@@ -18,8 +19,18 @@ def addTask():
             elif prompt.upper() == "Y":
                 break
             else:
-                print("The input must be either (y/n): ")
+                print("The input must be either (y/n).")
 
 
 addTask()
-print(task)
+
+
+def listToString(task):
+    return "\n".join(task) + "\n"
+
+
+with open("./tasks.txt", "a") as f:
+    f.write(listToString(task))
+
+print("Tasks saved.")
+print(listToString(task))
