@@ -6,6 +6,13 @@ Allow the user to mark tasks as completed and remove them from the list.
 
 task = []
 
+print("Welcome to the To-Do List App!\n")
+
+
+def printTasks():
+    with open("./tasks.txt", "r") as f:
+        print(f.read())
+
 
 def addTask():
     while True:
@@ -22,9 +29,6 @@ def addTask():
                 print("The input must be either (y/n).")
 
 
-addTask()
-
-
 def listToString(task):
     return "\n".join(task) + "\n"
 
@@ -33,4 +37,3 @@ with open("./tasks.txt", "a") as f:
     f.write(listToString(task))
 
 print("Tasks saved.")
-print(listToString(task))
