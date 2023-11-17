@@ -5,22 +5,13 @@ A Python program that functions as a CLI TODO app. It only has basic functions, 
 
 This code isn't decent or efficient. This was made with almost no prior coding experience and I am just learning so there are a lot of places for major improvements but for now, it does what it is meant to do.
 
-
-![Program Screenshot](https://github.com/crystalbajgai/todopy/blob/main/preview.png?raw=true)
-
-
-
-
+![preview](https://github.com/crystalbajgai/todopy/assets/66400444/5f2eba02-57ab-47df-8ba9-b9e9c8365337)
 
 ## Features
 
 - Add task.
 - View Task.
 - Remove Task.
-
-
-
-
 
 ## Installation
 
