@@ -1,9 +1,3 @@
-"""
-Allow the user to add tasks to a to-do list.
-Allow the user to view their current to-do list.
-Allow the user to mark tasks as completed and remove them from the list.
-"""
-
 task = []
 
 print("Welcome to the To-Do List App!\n")
@@ -27,30 +21,53 @@ def addTask():
                     print("The input must be either (y/n).")
 
 
-def main():
-    print("Please select one of the following options: ")
-    print("1. View to-do list")
-    print("2. Add task to to-do list")
-    print("3. Mark task as completed")
-    print("4. Exit")
-    choice = input("Enter your choice: ")
-    if choice == "1":
-        printTasks()
-    elif choice == "2":
-        addTask()
-    # elif choice == "3":
-    # print("Mark task as completed")
-    # elif choice == "4":
-    # print("Exit")
-    else:
-        print("Invalid input. Please try again.")
-
-
 def printTasks():
     with open("./tasks.txt", "r") as f:
         lines = f.readlines()
-        for line in lines:
-            print(line.rstrip())
+        for i, line in enumerate(lines, start=1):
+            print(f"{i}. {line.strip()}")
+
+
+def removeTask():
+    printTasks()
+    task_index = int(input("Enter the task number to remove: ")) - 1
+    with open("./tasks.txt", "r") as f:
+        tasks = f.readlines()
+
+    if 0 <= task_index < len(tasks):
+        del tasks[task_index]
+        with open("./tasks.txt", "w") as f:
+            for task in tasks:
+                f.write(task)
+        print("Task removed.")
+    else:
+        print("Invalid task number.")
+
+
+def main():
+    while True:
+        print("Please select one of the following options: ")
+        print("1. View to-do list")
+        print("2. Add task to to-do list")
+        print("3. Remove task from to-do list")
+        print("4. Exit")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            print()
+            print("Tasks: ")
+            printTasks()
+            print()
+        elif choice == "2":
+            print()
+            addTask()
+            print()
+        elif choice == "3":
+            removeTask()
+            print()
+        elif choice == "4":
+            exit()
+        else:
+            print("Invalid input. Please try again.")
 
 
 main()
