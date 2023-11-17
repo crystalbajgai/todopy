@@ -1,6 +1,6 @@
 task = []
 
-print("Welcome to the To-Do List App!\n")
+print("Welcome to the TODOPY!\n")
 
 
 def addTask():
